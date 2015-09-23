@@ -1,0 +1,31 @@
+{
+  "BLEProJsonVer": "x.0.1",
+  "profile": {
+    "services": [
+      {
+        "uuid": "0xFEEE",
+        "characteristics": [
+          {
+            "uuid": "GP-0123",
+            "value": "",
+            "properties": [
+              "write"
+            ],
+            "permissions": [
+              "write_ENC"
+            ],
+            "descriptors": {
+            }
+          },
+          {
+            "uuid": "GP-0124",
+            "value": "",
+            "properties": [
+              "notify"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
