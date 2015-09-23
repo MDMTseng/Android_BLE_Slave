@@ -45,9 +45,11 @@ public class BLEPeripheralMan {
         public boolean RecvData(Object CH, byte[] data)//From UI
         {
             BluetoothGattCharacteristic chara=GattCharaMap.get(CH);
-            chara.setValue(data);
-            sendNotificationToDevices(chara);
-            Log.v("BLEPeri..RecvData",data.toString());
+            if(chara!=null) {
+                chara.setValue(data);
+                sendNotificationToDevices(chara);
+                Log.v("BLEPeri..RecvData", data.toString());
+            }
             return true;
         }
 

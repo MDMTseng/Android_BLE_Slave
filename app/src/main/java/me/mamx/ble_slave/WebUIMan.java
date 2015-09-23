@@ -96,7 +96,7 @@ public class WebUIMan {
                 if(dataType==null||dataType.length()==0||dataType.contentEquals("gattInfo"))
                 {
                     byte[] base64Datas = Base64.decode(jobj.getString("base64Data"),Base64.DEFAULT);
-                    long uuid16=jobj.getLong("uuid32b");
+                    long uuid16=jobj.getLong("chid");
                     SendData(uuid16,base64Datas);
                 }
                 else{
@@ -125,7 +125,7 @@ public class WebUIMan {
 
 
             Message msg=msgHandler.obtainMessage();
-            String jsonStr="{\"uuid32b\":"+ln+",\"base64Data\":\""+str+"\"}";
+            String jsonStr="{\"chid\":"+ln+",\"base64Data\":\""+str+"\"}";
             msg.obj=jsonStr;
 
             msg.what=0;

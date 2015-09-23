@@ -79,7 +79,17 @@ function($scope, $timeout, $http) {
     };
 	var BTRECVDataArr=[];
 	$scope.AppendRECVData = function(dataObj) {
-		BTRECVDataArr.push(dataObj.uuid32b.toString(16)+">>"+dataObj.rawData.length);
+		var str=dataObj.chid.toString(16)+">>";
+
+		for ( n in dataObj.rawData) {
+			str+=dataObj.rawData.charCodeAt(n).toString(16)+",";
+        }
+
+
+		BTRECVDataArr.push(str);
+
+
+
 		if(BTRECVDataArr.length>100)
 			BTRECVDataArr.shift();
 		//$scope.BTRECVData.push(msg);
@@ -89,9 +99,9 @@ function($scope, $timeout, $http) {
 	$scope.SendMsg2BT = function(msg) {
 	};
 	$scope.SendMsg2BT2 = function(CH,msg) {
-		var uuid32b=parseInt(CH, 16);
+		var chid=parseInt(CH, 16);
 		var base64Data=window.btoa(msg);
-		var dataObj={uuid32b,base64Data};
+		var dataObj={chid,base64Data};
 		Android.SendMsg2BT(JSON.stringify(dataObj));
 	};
 
